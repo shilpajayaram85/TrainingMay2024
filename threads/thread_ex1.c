@@ -1,21 +1,23 @@
-#include <pthread.h>
+ead_exit(ead_exit(#include <pthread.h>
 #include <stdlib.h>
 #include <stdio.h>
 
 int g = 0;
 
 void *myThreadFun(void *args) {
-    static int s = 0;
+     int s = 0;
     int myid = *((int *) args);
+	
     g++;
     s++;
+
     printf("Thread Id %d Static %d  Global %d\n", myid, s, g);
     pthread_exit(NULL);
 }
 
 int main() {
     int i;
-    pthread_t tid[3];
+      pthread_t tid[3];
     int thread_ids[3];
 
     for (i = 0; i < 3; i++) {
